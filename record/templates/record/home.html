@@ -1,4 +1,4 @@
-{% extends 'record/base.html' %}
+{% extends "record/basehtml" %}
 
 
 {% block content %}
@@ -24,25 +24,5 @@
       </tr>
     </thead>
     <tbody>
-{% if records %}
-    {% for record in records%}
-          
-          <tr>
-            <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
-            <td>{{ record.first_name }} {{ record.last_name }}</td>
-            <td>{{ record.email }}</td>
-            <td>{{ record.phone }}</td>
-            <td>{{ record.address }}</td>
-            <td>{{ record.city }}</td>
-            <td>{{ record.state }}</td>
-            <td>{{ record.zipcode }}</td>
-            <td>{{ record.created_at }}</td>
-          </tr>
 
-
-    {% endfor %}
-{% endif %}
-</tbody>
-</table>
-</div>
 {% endblock %}
