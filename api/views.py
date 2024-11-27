@@ -10,3 +10,9 @@ def getData(request):
     serializer = CustomerSerializer(customer, many=True)
     return Response(serializer.data)
 
+@api_view(['POST'])
+def addCustomer(request):
+    serializer = CustomerSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
