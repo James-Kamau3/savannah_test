@@ -11,5 +11,17 @@ def generate_unique_code():
 class Customer(models.Model):
     name = models.CharField(max_length=250)
     code = models.PositiveIntegerField(default=generate_unique_code, unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
 
+class Order(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    item = models.CharField(max_length=255)
+    amount = models.DecimalField(max_digits=5, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.customer.name} - {self.item}, {self.amount}'
+    
+    
