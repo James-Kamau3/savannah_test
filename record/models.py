@@ -13,7 +13,7 @@ class Customer(models.Model):
     code = models.PositiveIntegerField(default=generate_unique_code, unique=True)
     
     def __str__(self):
-        return self.name
+        return f'name: {self.name} - code: {self.code}'
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)

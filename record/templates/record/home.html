@@ -6,7 +6,7 @@
 <div class="col-md-auto">
   <div class="text-center">
 <h1>Welcome !</h1>
-<h3>View Records</h3>
+<h3>Customer Records</h3>
 </div>
 
 <table class="table table-striped table-hover table-bordered">
@@ -15,9 +15,19 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Code</th>
-        <th scope="col">Created At</th>   
+        <th scope="col">Order</th>  
       </tr>
     </thead>
     <tbody>
 
+{% if customers %}
+      {% for customer in customers %}
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.code }}</td>
+      <td><a href='#'>check order</a></td>
+      {% comment %} <td>{{ customer.created_at }}</td> {% endcomment %}
+      {% comment %} <td>{{ record. }}</td> {% endcomment %}
+{% endfor %}
+{% endif %}
 {% endblock %}
