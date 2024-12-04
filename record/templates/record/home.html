@@ -25,7 +25,7 @@
       <td>{{ customer.id }}</td>
       <td>{{ customer.name }}</td>
       <td>{{ customer.code }}</td>
-      <td><a href='#'>check order</a></td>
+      <td><a href={% url "orders" customer.id %}>check order</a></td>
       {% comment %} <td>{{ customer.created_at }}</td> {% endcomment %}
       {% comment %} <td>{{ record. }}</td> {% endcomment %}
 {% endfor %}
