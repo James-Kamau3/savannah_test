@@ -5,6 +5,11 @@
 <h5>order {{orders.id}}</h5>
 
 
+<div class="card">
+  <div class="card-header"><strong>
+    {{ orders.customer.name }} 
+  </strong>
+</div>
 
     <div class="card-body">
   
@@ -20,7 +25,8 @@
   </p>
 
   <p class="card-text">
-  <strong>Create At: </strong>{{ orders.created_at }}</p>
+  <strong>Create At: </strong>{{ orders.created_at }}
+  </p>
   
   <p class="card-text">
   <strong>Order ID: </strong>{{ orders.id }}</p>
