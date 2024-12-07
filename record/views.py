@@ -13,7 +13,7 @@ def home(request):
     customers = Customer.objects.all()
     return render(request, 'record/home.html', {'customers': customers})
 
-
+@login_required(login_url='social:begin')
 def orders(request, pk):
     orders = get_object_or_404(Order, id=pk)
     return render(request, 'record/orders.html', {'orders': orders})
