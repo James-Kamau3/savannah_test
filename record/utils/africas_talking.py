@@ -1,8 +1,8 @@
 import africastalking
-
+import os
 # Initialize Africa's Talking
 username = "sandbox"  
-api_key = "atsk_d5d6144d90d8ccc0214903128fd49a927e1c2454c18968b7cf5429fc40788e8ba976cad5"  
+api_key = os.environ.get('api_key')
 
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
