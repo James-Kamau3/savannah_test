@@ -1,5 +1,6 @@
 from django.db import models
 import random
+
 # Create your models here.
 
 def generate_unique_code():
@@ -10,6 +11,7 @@ def generate_unique_code():
 
 class Customer(models.Model):
     name = models.CharField(max_length=250)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
     code = models.PositiveIntegerField(default=generate_unique_code, unique=True)
     
     def __str__(self):

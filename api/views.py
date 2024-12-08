@@ -5,7 +5,7 @@ from record.models import Customer
 from django.shortcuts import render, redirect
 from .forms import AddCustomerForm, AddOrderForm
 from django.contrib import messages
-
+from record.utils.africas_talking import send_sms
 
 @api_view(['GET'])
 def getData(request):
@@ -19,11 +19,17 @@ def addOrder(request):
         if request.method == "POST":
             form = AddOrderForm(request.POST)
             if form.is_valid():
-                form.save()
-                messages.success(request, "Order added successfully!")
-                return redirect('home')  
-            else:
-                messages.error(request, "There was an error with your submission.")
+
+                order = form.save()
+                customer = order.customer
+                if customer.phone_number:
+                    send_sms(recipient=[customer.phone_number], message=f'Hi {customer.name}, your order for {order.item}, has been successfully placed')
+                messages.success(request, 'Order added and sms sent')
+                return redirect('home')
+                    
+        else:
+            form = AddOrderForm()
+
     customers = Customer.objects.all()
     return render(request, 'record/add_order.html', {'form': form, 'customers': customers})
 
@@ -32,8 +38,9 @@ def addCustomer(request):
         if request.method == "POST":
             form = AddCustomerForm(request.POST)
             if form.is_valid():
-                new_customer = form.save()
-                return redirect('add_order', customer_id=new_customer.id)
+                form.save()
+                messages.success(request, 'Successfully added')
+                return redirect('add_order')
 
             else:
                 messages.error(request, "There was an error with your submission.")
