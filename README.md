@@ -20,7 +20,7 @@ Implemented using OpenID Connect to ensure secure access.
 Sends SMS alerts to customers when a new order is created using the Africa's Talking SMS Gateway.
 
 ### Unit Testing
-Comprehensive test coverage with Django's testing framework and coverage analysis.
+Comprehensive test coverage with Django's testing framework.
 
 ### CI/CD
 Automated continuous integration and deployment pipelines.
