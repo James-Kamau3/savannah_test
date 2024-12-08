@@ -25,6 +25,7 @@
       <td>{{ customer.id }}</td>
       <td>{{ customer.name }}</td>
       <td>{{ customer.code }}</td>
+
       <td>
         {% if user.is_authenticated %}
         <a href={% url "orders" customer.id %}>check order</a></td>
@@ -32,7 +33,6 @@
         <span><a href="{% url 'social:begin' 'google-oauth2' %}">Login to view order</a></span>
         {% endif %}
 
-      {% comment %} <td>{{ customer.created_at }}</td> {% endcomment %}
       {% comment %} <td>{{ record. }}</td> {% endcomment %}
 {% endfor %}
 {% endif %}
