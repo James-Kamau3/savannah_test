@@ -1,13 +1,12 @@
 # Customer Orders API Service
 ## Overview
-This project is a Customer Orders API Service built with Python Django. It provides a RESTful API for managing customers and their orders. The service implements secure authentication and authorization using OpenID Connect and sends SMS alerts to customers via the Africa's Talking SMS Gateway whenever an order is added. The application is equipped with unit tests, CI/CD pipelines, to be deployed IaaS platform.
+This project is a Customer Orders API Service built with Python Django. It provides a RESTful API for managing customers and their orders. The service implements secure authentication and authorization using OpenID Connect and sends SMS alerts to customers via the Africa's Talking SMS Gateway whenever an order is added. The application is equipped with unit test to be deployed IaaS platform.
 
 
 ### Features
 
 ### Customer Management
-Add, view, update, and delete customers.
-Each customer includes a name and a unique code.
+Add Each customer including a name, phone number and a unique code.
 
 ### Order Management
 Add and list orders linked to specific customers.
